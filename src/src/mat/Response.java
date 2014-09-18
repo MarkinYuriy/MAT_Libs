@@ -12,4 +12,5 @@ public interface Response {
 	/******************************/
 	//common response for functions matLogin and setProfile
 	static final int OK=4;
+	static final int UNKNOWN=2;
 }
