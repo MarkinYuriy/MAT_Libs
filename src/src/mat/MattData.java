@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class MattData implements Serializable {
 String name;//name of MATT
-int nDays;//numbber of days
+int nDays;//number of days
 Date startDate;
 int startHour;
 int endHour;
