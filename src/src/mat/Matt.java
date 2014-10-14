@@ -135,7 +135,7 @@ public String matt2browser(){
   else{
   daysStr.append(0);}
   daysStr.append(',');
-  count=count+nDays;
+  count=count+timeSlots;
    }
    daysStr.insert(daysStr.length()-1, "]");
    }
