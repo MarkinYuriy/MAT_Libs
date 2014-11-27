@@ -1,6 +1,8 @@
 package mat;
 
-public class Notification {
+import java.io.Serializable;
+
+public class Notification implements Serializable{
 	public String username;
 	public String tableName;
 	public Notification(){}
