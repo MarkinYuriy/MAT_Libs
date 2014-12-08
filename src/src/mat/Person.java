@@ -9,7 +9,7 @@ public class Person implements Serializable{
 	 String[] snNames; 
 	 String email;//the same as username
 	 String password;
-	 
+	 int timeZone; //relatively GMT, e.g. value for Israel 2
 	 
 
 	 public Person(String name, String[] snNames, String email, String password) {

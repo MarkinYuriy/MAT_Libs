@@ -4,17 +4,26 @@ package mat;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 public class MattData implements Serializable {
 	String name;//name of MATT
+	int mattId;//from DB (BES1)
 	int nDays;//number of days
 	Date startDate;
-	int startHour;
-	int endHour;
+	int startHour;//0
+	int endHour;//24-time slot
 	int timeSlot; //in minutes
 	String password; //if null the MATT is public
-
+	HashMap<String, List<String>[]> sncalendars;//key - Social Network,
+	//      value-two dimensional strings array, first dimension: 0-Upload, 1-Download
+	//calendars null - no synch with calendars
+	//first Example: Google for upload 2 calendars, for download 1 calendar
+	// calendars=sncalendars.get("Google");
+	//calendars[0] - contains two calendar names for upload
+	//calendars[1] - contains one calendar for download
+	//second Example - no download:
+	//           calendars[1] is null
 	public MattData(String name, int nDays, Date startDate, int startHour, int endHour, int timeSlot, String password) {
 		this.name = name;
 		this.nDays = nDays;
