@@ -6,16 +6,16 @@ import java.util.List;
 public class Person implements Serializable{
 	 String name;
 	 //String userName;
-	 String[] snNames; 
+//	 String[] snNames; 
 	 String email;//the same as username
 	 String password;
 	 int timeZone; //relatively GMT, e.g. value for Israel 2
 	 
 
-	 public Person(String name, String[] snNames, String email, String password) {
+	 public Person(String name/*, String[] snNames*/, String email, String password) {
 	  super();
 	  this.name = name;
-	  this.snNames = snNames;
+//	  this.snNames = snNames;
 	  this.email = email;
 	  this.password = password;
 	 }
@@ -24,8 +24,8 @@ public class Person implements Serializable{
 	 public void setName(String name) {this.name = name;}
 	 
 	 
-	 public String[] getSnNames() {return snNames;}
-	 public void setSnNames(String[] snNames) {this.snNames = snNames;}
+//	 public String[] getSnNames() {return snNames;}
+//	 public void setSnNames(String[] snNames) {this.snNames = snNames;}
 	 
 	 public String getEmail() {return email;}
 	 public void setEmail(String email) {this.email = email;}
