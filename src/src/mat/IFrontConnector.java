@@ -1,5 +1,8 @@
 package mat;
 
+import java.util.HashMap;
+import java.util.List;
+
 public interface IFrontConnector {
 	/* *********************************************** */
     //PROTOCOL CONSTANTS
@@ -15,7 +18,6 @@ public interface IFrontConnector {
     public static final int INDEX_SCOPES = 1;
     /* ********************************************** */
 
-
     //May throw unchecked SecurityException or RuntimeException. It is strongly recommended to make try/catch block.
     String[] getContacts(String username, String[] socialNames);
     //May throw unchecked SecurityException. Strongly recommended to make try/catch block.
@@ -28,4 +30,6 @@ public interface IFrontConnector {
     String[] getApplicationData(String socialName);
     //Free slotes are ones that should be marked as events in the Google calendar
     void setEvent(String eventName, String userName, mat.Matt matt);
+    //in HashMap: key - SocialNetwork, List Calendars
+    HashMap<String, List<String>> getAvailableCalendars(String userName);
 }
