@@ -32,11 +32,66 @@ public class MattData implements Serializable {
 		this.endHour = endHour;
 		this.timeSlot = timeSlot;
 		this.password = password;
+		this.sncalendars = new HashMap<String, List<String>[]>();
+	}
+	public List<String> getUploadCalendars(String SN) {
+		if(sncalendars!=null)
+			return sncalendars.get(SN)[0];
+		else return null;
+	}
+	public List<String> getDownloadCalendars(String SN) {
+		if(sncalendars!=null)
+			return sncalendars.get(SN)[1];
+		else return null;
+	}
+	public String[] getUploadSN(){
+		String[] arrSN;
+		if(sncalendars!=null)
+			arrSN = (String[]) sncalendars.keySet().toArray();
+		else return null;
+		for(int i=0; i<arrSN.length; i++){
+			if(sncalendars.get(arrSN[i])[0]==null)
+				arrSN[i]=null;
+		}
+		return arrSN;
+	}
+
+	public String[] getDownloadSN(){
+		String[] arrSN;
+		if(sncalendars!=null)
+			arrSN = (String[]) sncalendars.keySet().toArray();
+		else return null;
+		for(int i=0; i<arrSN.length; i++){
+			if(sncalendars.get(arrSN[i])[1]==null)
+				arrSN[i]=null;
+		}
+		return arrSN;
+	}
+	
+	public void setUploadCalendars(String SN, List<String> calendars) {
+		if(sncalendars.containsKey(SN))
+			sncalendars.get(SN)[0]=calendars;
+		else{
+			List<String>[] arrlist = (List<String>[]) new Object[2];
+			arrlist[0] = calendars;
+			arrlist[1] = null;
+			sncalendars.put(SN, arrlist);
+		}
+	}
+	public void setDownloadCalendars(String SN, List<String> calendars) {
+		if(sncalendars.containsKey(SN))
+			sncalendars.get(SN)[1]=calendars;
+		else{
+			List<String>[] arrlist = (List<String>[]) new Object[2];
+			arrlist[1] = calendars;
+			arrlist[0] = null;
+			sncalendars.put(SN, arrlist);
+		}
 	}
 
 	public String getName() {
 		return name;
-		}
+	}
 	public int getnDays() {
 		return nDays;
 	}
@@ -79,5 +134,5 @@ public class MattData implements Serializable {
 				'"'+"password"+'"'+':'+'"'+password+'"'+
 				"}"
 				;
-		}
+	}
 }
