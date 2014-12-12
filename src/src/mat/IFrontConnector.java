@@ -28,7 +28,7 @@ public interface IFrontConnector {
     boolean authorize(String username, String socialName, String authCode);
     //May throw unchecked RuntimeException. It is strongly recommended to make try/catch block.
     String[] getApplicationData(String socialName);
-    //Free slotes are ones that should be marked as events in the Google calendar
+    //Free slots are ones that should be marked as events in the Google calendar
     void setEvent(String eventName, String userName, mat.Matt matt);
     //in HashMap: key - SocialNetwork, List Calendars
     HashMap<String, List<String>> getAvailableCalendars(String userName);

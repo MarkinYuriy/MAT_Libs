@@ -6,13 +6,13 @@ public interface IFesBes1 {
 	int matLogin(String username, String password);
 	String [] getMattNames(String username);
 	mat.Matt createMatt(mat.MattData data, String username);
-	mat.Matt getMatt(int mattId, String username);
+	mat.Matt getMatt(int matId);
 	boolean saveMatt(mat.Matt mattOld,mat.Matt mattNew,String username);
 	boolean removeMatt(int mattId);
 	mat.Person getProfile(String username);
 	void setActive(String username,String hashcode);
 	void updateMatCalendarInSN(String username, String snName);
 	public int ifEmailExistsInDB(String email);
-	void setGuests(String username, String tableName, String [] guestEmails);
-	java.util.List<mat.Notification> getNotifications(String guestName);
+	void setGuests(int matID, String [] guestEmails);
+	java.util.List<Integer> getNotifications(String guestName);
 }
