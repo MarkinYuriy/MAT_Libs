@@ -3,15 +3,14 @@ package mat;
 public interface IFesBes1 {
 	int setProfile(mat.Person person);
 	int updateProfile(mat.Person person);
-	int matLogin(String username, String password);
-	String [] getMattNames(String username);
-	mat.Matt createMatt(mat.MattData data, String username);
+	int matLogin(String userName, String password);
+	String [] getMattNames(String userName);
 	mat.Matt getMatt(int matId);
-	boolean saveMatt(mat.Matt mattOld,mat.Matt mattNew,String username);
+	int saveMatt(mat.Matt mattNew,String userName);//return mattId
 	boolean removeMatt(int mattId);
-	mat.Person getProfile(String username);
-	void setActive(String username,String hashcode);
-	void updateMatCalendarInSN(String username, String snName);
+	mat.Person getProfile(String userName);
+	void setActive(String userName,String hashcode);
+	void updateMatCalendarInSN(String userName, String snName);
 	public int ifEmailExistsInDB(String email);
 	void setGuests(int matID, String [] guestEmails);
 	java.util.List<Integer> getNotifications(String guestName);

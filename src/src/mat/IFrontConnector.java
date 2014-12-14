@@ -32,4 +32,6 @@ public interface IFrontConnector {
     void setEvent(String eventName, String userName, mat.Matt matt);
     //in HashMap: key - SocialNetwork, List Calendars
     HashMap<String, List<String>> getAvailableCalendars(String userName);
+    
+	void uploadMatt(String username, mat.Matt matt);
 }

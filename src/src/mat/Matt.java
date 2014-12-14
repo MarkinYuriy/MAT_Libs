@@ -93,7 +93,7 @@ public String matt2browser(){
  } daysStr.append("],");
  
  cal.setTime(startDate);
- dfDays.applyPattern("dd.MM");
+ dfDays.applyPattern("dd.MMM");
  daysStr.append("[");
  daysStr.append('"');
  daysStr.append(dfDays.format(cal.getTime()));
