@@ -12,17 +12,20 @@ public class Person implements Serializable{
 	 int timeZone; //relatively GMT, e.g. value for Israel 2
 	 
 
-	 public Person(String name/*, String[] snNames*/, String email, String password) {
+	 public Person(String name/*, String[] snNames*/, String email, String password, int timeZone) {
 	  super();
 	  this.name = name;
 //	  this.snNames = snNames;
 	  this.email = email;
 	  this.password = password;
+	  this.timeZone = timeZone;
 	 }
+	 
+	 public int getTimeZone() {return timeZone;}
+	 public void setTimeZone(int timeZone) {this.timeZone = timeZone;}
 	 
 	 public String getName() {return name;}
 	 public void setName(String name) {this.name = name;}
-	 
 	 
 //	 public String[] getSnNames() {return snNames;}
 //	 public void setSnNames(String[] snNames) {this.snNames = snNames;}
