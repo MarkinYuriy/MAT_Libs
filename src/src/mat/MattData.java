@@ -25,6 +25,7 @@ public class MattData implements Serializable {
 	//second Example - no download:
 	//           calendars[1] is null
 	public MattData(String name, int nDays, Date startDate, int startHour, int endHour, int timeSlot, String password) {
+		this.mattId = 0;
 		this.name = name;
 		this.nDays = nDays;
 		this.startDate = startDate;
@@ -89,6 +90,14 @@ public class MattData implements Serializable {
 		}
 	}
 
+	public int getMattId() {
+		return mattId;
+	}
+	public void setMattId(int mattId) {
+		this.mattId=mattId;
+	}
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -125,6 +134,7 @@ public class MattData implements Serializable {
 
 	public String mattDataToJSON() {
 		return "{"+
+				'"'+"mattId"+'"'+":"+'"'+mattId+'"'+','+
 				'"'+"name"+'"'+":"+'"'+name+'"'+','+
 				'"'+"nDays"+'"'+':'+nDays+','+
 				'"'+"startDate"+'"'+':'+'"'+dateFormat()+'"'+','+
