@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+@SuppressWarnings("serial")
 public class MattData implements Serializable {
 
 	String name;//name of MATT
@@ -37,44 +38,53 @@ public class MattData implements Serializable {
 		this.sncalendars = new HashMap<String, List<String>[]>();
 	}
 	public List<String> getUploadCalendars(String SN) {
-		if(sncalendars!=null)
+		if(sncalendars!=null && sncalendars.get(SN)!=null)
 			return sncalendars.get(SN)[0];
-		else return null;
+		return null;
 	}
 	public List<String> getDownloadCalendars(String SN) {
-		if(sncalendars!=null)
+		if(sncalendars!=null && sncalendars.get(SN)!=null)
 			return sncalendars.get(SN)[1];
-		else return null;
+		return null;
 	}
 	public String[] getUploadSN(){
-		String[] arrSN;
-		if(sncalendars!=null)
-			arrSN = (String[]) sncalendars.keySet().toArray();
-		else return null;
-		for(int i=0; i<arrSN.length; i++){
-			if(sncalendars.get(arrSN[i])[0]==null)
-				arrSN[i]=null;
+		ArrayList<String> arrSN = new ArrayList<String>();
+		Set<String> sn = null;
+		if(sncalendars!=null){
+			sn = sncalendars.keySet();
 		}
-		return arrSN;
+		else return null;
+		for(String s: sn){
+			if(sncalendars.get(s)!=null && sncalendars.get(s)[0]!=null)
+				arrSN.add(s);
+		}
+		String[] result = new String[arrSN.size()];
+		result = arrSN.toArray(result);
+		return result;
 	}
 
 	public String[] getDownloadSN(){
-		String[] arrSN;
-		if(sncalendars!=null)
-			arrSN = (String[]) sncalendars.keySet().toArray();
-		else return null;
-		for(int i=0; i<arrSN.length; i++){
-			if(sncalendars.get(arrSN[i])[1]==null)
-				arrSN[i]=null;
+		ArrayList<String> arrSN = new ArrayList<String>();
+		Set<String> sn = null;
+		if(sncalendars!=null){
+			sn = sncalendars.keySet();
 		}
-		return arrSN;
+		else return null;
+		for(String s: sn){
+			if(sncalendars.get(s)!=null && sncalendars.get(s)[1]!=null)
+				arrSN.add(s);
+		}
+		String[] result = new String[arrSN.size()];
+		result = arrSN.toArray(result);
+		return result;
 	}
 	
 	public void setUploadCalendars(String SN, List<String> calendars) {
 		if(sncalendars.containsKey(SN))
 			sncalendars.get(SN)[0]=calendars;
 		else{
-			List<String>[] arrlist = (List<String>[]) new Object[2];
+			@SuppressWarnings("unchecked")
+			List<String>[] arrlist = new List[2];
 			arrlist[0] = calendars;
 			arrlist[1] = null;
 			sncalendars.put(SN, arrlist);
@@ -84,7 +94,8 @@ public class MattData implements Serializable {
 		if(sncalendars.containsKey(SN))
 			sncalendars.get(SN)[1]=calendars;
 		else{
-			List<String>[] arrlist = (List<String>[]) new Object[2];
+			@SuppressWarnings("unchecked")
+			List<String>[] arrlist = new List[2];
 			arrlist[1] = calendars;
 			arrlist[0] = null;
 			sncalendars.put(SN, arrlist);

@@ -2,6 +2,7 @@ package mat;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Person implements Serializable{
 	 String name;
 	 //String userName;
