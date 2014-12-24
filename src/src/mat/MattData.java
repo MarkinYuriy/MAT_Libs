@@ -75,6 +75,10 @@ public class MattData implements Serializable {
 		return result.length>0 ? result : null;
 	}
 	
+	public void setSNCalendars(HashMap<String, List<String>[]> sncalendars){
+		this.sncalendars = sncalendars;
+	}
+	
 	public void setUploadCalendars(String SN, List<String> calendars) {
 		if(sncalendars.containsKey(SN))
 			sncalendars.get(SN)[0]=calendars;
