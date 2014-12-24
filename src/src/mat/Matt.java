@@ -166,7 +166,7 @@ public String matt2browser(){
   for(int t=0;t<numDays;++t){
    n=t;
    for(int m=0;m<(buf.length/numDays);m++){
-     e=(buf[n]=='1'?true:false);
+	   e=(buf[n]=='0'?false:true);
      newTabList.add(e);
      n=n+numDays;
    }
