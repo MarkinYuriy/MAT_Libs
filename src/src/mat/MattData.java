@@ -48,35 +48,31 @@ public class MattData implements Serializable {
 		return null;
 	}
 	public String[] getUploadSN(){
-		ArrayList<String> arrSN = new ArrayList<String>();
-		Set<String> sn = null;
-		if(sncalendars!=null){
-			sn = sncalendars.keySet();
+		String[] result = null;
+		if(sncalendars!=null && sncalendars.keySet().size()>0){
+			result = new String[sncalendars.keySet().size()];
 		}
 		else return null;
-		for(String s: sn){
-			if(sncalendars.get(s)!=null && sncalendars.get(s)[0]!=null)
-				arrSN.add(s);
+		int index=0;
+		for(String sn: sncalendars.keySet()){
+			if(sncalendars.get(sn)!=null && sncalendars.get(sn)[0]!=null)
+				result[index++] = sn;
 		}
-		String[] result = new String[arrSN.size()];
-		result = arrSN.toArray(result);
-		return result;
+		return result.length>0 ? result : null;
 	}
 
 	public String[] getDownloadSN(){
-		ArrayList<String> arrSN = new ArrayList<String>();
-		Set<String> sn = null;
-		if(sncalendars!=null){
-			sn = sncalendars.keySet();
+		String[] result = null;
+		if(sncalendars!=null && sncalendars.keySet().size()>0){
+			result = new String[sncalendars.keySet().size()];
 		}
 		else return null;
-		for(String s: sn){
-			if(sncalendars.get(s)!=null && sncalendars.get(s)[1]!=null)
-				arrSN.add(s);
+		int index=0;
+		for(String sn: sncalendars.keySet()){
+			if(sncalendars.get(sn)!=null && sncalendars.get(sn)[1]!=null)
+				result[index++] = sn;
 		}
-		String[] result = new String[arrSN.size()];
-		result = arrSN.toArray(result);
-		return result;
+		return result.length>0 ? result : null;
 	}
 	
 	public void setUploadCalendars(String SN, List<String> calendars) {
