@@ -1,6 +1,6 @@
 package mat;
 
-import java.util.HashMap;
+import java.util.*;
 
 public interface IFesBes1 {
 	int setProfile(mat.Person person);
@@ -16,4 +16,6 @@ public interface IFesBes1 {
 	public int ifEmailExistsInDB(String email);
 	boolean setGuests(int matID, String [] guestEmails);
 	java.util.List<Notification> getNotifications(String guestName);
+	Matt updateInvitationMatt(int matId,String username,
+			HashMap<String, List<String>> calendars);
 }
