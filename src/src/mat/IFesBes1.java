@@ -18,4 +18,5 @@ public interface IFesBes1 {
 	java.util.List<Notification> getNotifications(String guestName);
 	Matt updateInvitationMatt(int matId,String username,
 			HashMap<String, List<String>> calendars);
+	String[] getGuests(int matId);
 }
